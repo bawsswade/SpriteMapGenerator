@@ -1,0 +1,16 @@
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\SpriteMapGenerator\bin\Debug\SpriteMapGenerator.exe.config
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\SpriteMapGenerator\obj\Debug\SpriteMapGenerator.csprojResolveAssemblyReference.cache
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\SpriteMapGenerator\obj\Debug\MainWindow.baml
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\SpriteMapGenerator\obj\Debug\MainWindow.g.cs
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\SpriteMapGenerator\obj\Debug\App.g.cs
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\SpriteMapGenerator\obj\Debug\SpriteMapGenerator_MarkupCompile.cache
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\SpriteMapGenerator\obj\Debug\SpriteMapGenerator.g.resources
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\SpriteMapGenerator\obj\Debug\SpriteMapGenerator.Properties.Resources.resources
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\SpriteMapGenerator\obj\Debug\SpriteMapGenerator.csproj.GenerateResource.Cache
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\SpriteMapGenerator\bin\Debug\SpriteMapGenerator.exe
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\SpriteMapGenerator\bin\Debug\SpriteMapGenerator.pdb
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\SpriteMapGenerator\obj\Debug\SpriteMapGenerator.exe
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\SpriteMapGenerator\obj\Debug\SpriteMapGenerator.pdb
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\SpriteMapGenerator\bin\Debug\WriteableBitmapEx.Wpf.dll
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\SpriteMapGenerator\bin\Debug\WriteableBitmapEx.Wpf.pdb
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\SpriteMapGenerator\bin\Debug\WriteableBitmapEx.Wpf.xml
