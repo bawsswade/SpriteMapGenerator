@@ -25,9 +25,14 @@ namespace SpriteMapGenerator
         SpriteSheet Atlas = new SpriteSheet();
 
         SpriteImage temp = new SpriteImage();
+
+        public static RoutedCommand MyCommand = new RoutedCommand();
+
         public MainWindow()
         {
             InitializeComponent();
+
+            MyCommand.InputGestures.Add(new KeyGesture(Key.S, ModifierKeys.Control));
         }
 
         public void Browse_Click(object sender, RoutedEventArgs e)
@@ -51,21 +56,34 @@ namespace SpriteMapGenerator
                 browseText.Text = filename;
                 // Set to draw 
                 Sprite.Source = new BitmapImage(new Uri(browseText.Text));
-
-                //temp.filePath =dlg.
             }
         }
 
         public void AddToSheet_Click(object sender, RoutedEventArgs e)
         {
-            // add image to atlas
-            
+            // create temp img
             temp.bmImg = new BitmapImage(new Uri(browseText.Text));
             // add to list
             Atlas.spriteList.Add(temp);
 
             // set image
             AtlasImage.Source = temp.bmImg;
+        }
+
+        private void Quit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            Atlas.CreateAtlas();
+            MessageBox.Show("Your sprite sheet has been saved!");
+        }
+
+        private void MyCommandExecuted( object sender, ExecutedRoutedEventArgs e )
+        {
+            Application.Current.Shutdown();
         }
     }
 }
