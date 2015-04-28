@@ -11,8 +11,10 @@ namespace SpriteMapGenerator
     {
         public BitmapImage bmImg;
         //BitmapImage
-        string filePath;
-        int id;
+        public  string filePath {get;set;}
+        public int id { get; set; }
         float width, height;
+
+
     }
 }

@@ -22,10 +22,9 @@ namespace SpriteMapGenerator
     /// </summary>
     public partial class MainWindow : Window
     {
-        //SpriteSheet Atlas;
-        //  image for canvas
-        SpriteImage spriteImage;
-        //BitmapImage bitmap = new BitmapImage();
+        SpriteSheet Atlas = new SpriteSheet();
+
+        SpriteImage temp = new SpriteImage();
         public MainWindow()
         {
             InitializeComponent();
@@ -53,15 +52,20 @@ namespace SpriteMapGenerator
                 // Set to draw 
                 Sprite.Source = new BitmapImage(new Uri(browseText.Text));
 
-
-
-                // convert to bitmapimage
+                //temp.filePath =dlg.
             }
         }
 
         public void AddToSheet_Click(object sender, RoutedEventArgs e)
         {
-           
+            // add image to atlas
+            
+            temp.bmImg = new BitmapImage(new Uri(browseText.Text));
+            // add to list
+            Atlas.spriteList.Add(temp);
+
+            // set image
+            AtlasImage.Source = temp.bmImg;
         }
     }
 }

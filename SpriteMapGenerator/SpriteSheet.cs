@@ -12,19 +12,25 @@ namespace SpriteMapGenerator
     class SpriteSheet
     {
         //BitmapImage AtlasSheet();
-        List<SpriteImage> spriteList = new List<SpriteImage>();
+        public List<SpriteImage> spriteList = new List<SpriteImage>();
 
-        Image SpriteImage;
+        public BitmapImage bitmapImage { get; set; }
         
-        SpriteSheet()
+        public SpriteSheet()
         {
+
+        }
+
+        public void CreateAtlas()
+        {
+
             WriteableBitmap writeableBmp = BitmapFactory.New(512, 512);
+            Image SpriteImage = new Image();
             SpriteImage.Source = writeableBmp;
             writeableBmp.GetBitmapContext();
 
             // Load an image from the calling Assembly's resources only by passing the relative path
             writeableBmp = BitmapFactory.New(1, 1).FromResource("./GitHub/SpriteMapGenerator/SpriteMapGenerator/resources/images/smile.png");
-
         }
 
         public void SaveImage(string filename)

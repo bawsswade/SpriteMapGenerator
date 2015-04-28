@@ -1,7 +1,7 @@
 ﻿<Window x:Class="SpriteMapGenerator.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="500" Width="720">
+        Title="MainWindow" Height="500" Width="800">
     <StackPanel>
         <Menu Height="20">
             <MenuItem Header="File">
@@ -17,7 +17,7 @@
                 <MenuItem Header="Tutorial"></MenuItem>
             </MenuItem>
         </Menu>
-        <Grid VerticalAlignment="Stretch" Height="Auto">
+        <Grid VerticalAlignment="Stretch" Height="Auto" HorizontalAlignment="Stretch">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="30*"></ColumnDefinition>
@@ -40,8 +40,8 @@
                     <RowDefinition Height="25*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Stretch" Height="Auto" Width="Auto" MinHeight="100" MinWidth="50" Margin="10,10,10,0" VerticalAlignment="Stretch" Background="Gray">
-                        <Image Name="Sprite" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="./resources/images/smile.png"/>
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Stretch" Height="Auto" Width="Auto" MinHeight="150" MinWidth="50" Margin="10,10,10,0" VerticalAlignment="Stretch" Background="Gray">
+                        <Image Name="Sprite" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                     </Border>
                 </Grid>
 
@@ -56,7 +56,7 @@
 
             <Grid Grid.Column="2" Margin="0,14,0,10" Grid.RowSpan="2">
                 <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Stretch" Height="408" Margin="5,29,0,-413" VerticalAlignment="Top" Width="Auto" MinWidth="300">
-                    
+                    <Image Name="AtlasImage"></Image>
                 </Border>
             </Grid>
         </Grid>
