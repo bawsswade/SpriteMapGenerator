@@ -4,9 +4,11 @@
         Title="MainWindow" Height="500" Width="800">
     <Window.CommandBindings>
         <CommandBinding Command="New" Executed="MyCommandExecuted" />
+        <CommandBinding Command="Save" Executed="SaveCommandExecuted" />
     </Window.CommandBindings>
     <Window.InputBindings>
         <KeyBinding Key="Q" Modifiers="Control" Command="New"/>
+        <KeyBinding Key="S" Modifiers="Control" Command="Save"/>
     </Window.InputBindings>
 
     <DockPanel LastChildFill="True">
@@ -51,7 +53,7 @@
             <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="10" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Center"  Width="Auto" MinWidth="300" MinHeight="300">
                 
                     <Image Name="AtlasImage"></Image>
-                
+               
             </Border>
         </Grid>
     </DockPanel>

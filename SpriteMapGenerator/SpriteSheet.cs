@@ -15,13 +15,18 @@ namespace SpriteMapGenerator
         const int SHEET_WIDTH = 2000;
         const int SHEET_HEIGHT = 2000;
         public List<SpriteImage> spriteList = new List<SpriteImage>();
+        public Canvas SpriteCanvas = new Canvas();
 
         // atlas's image
         Image SpriteImage = new Image();
-        
-        public SpriteSheet()
+
+        public SpriteSheet() 
         {
+            SpriteCanvas.Width = SHEET_WIDTH;
+            SpriteCanvas.Height = SHEET_HEIGHT;
         }
+
+
 
         public void CreateAtlas()
         {
@@ -33,10 +38,10 @@ namespace SpriteMapGenerator
             // add sprites
             foreach (SpriteImage img in spriteList)
             {
-                System.Windows.Rect spriteRec = new System.Windows.Rect(0, 0, 2000, 2000);
+                System.Windows.Rect spriteRec = new System.Windows.Rect(0, 0, img.width, img.height);
                 WriteableBitmap wBmp = new WriteableBitmap(BitmapFactory.ConvertToPbgra32Format(img.bmImg));
                 // width and height of individual image
-                writeableBmp.Blit(spriteRec, wBmp, new System.Windows.Rect(0, 0, 2000, 2000));
+                writeableBmp.Blit(spriteRec, wBmp, new System.Windows.Rect(0, 0, img.width, img.height));
             }
 
             //saving in png format
@@ -63,9 +68,5 @@ namespace SpriteMapGenerator
             }
         }
 
-        public void SaveImage(string filename)
-        {
-            //AtlasSheet.
-        }
     }
 }

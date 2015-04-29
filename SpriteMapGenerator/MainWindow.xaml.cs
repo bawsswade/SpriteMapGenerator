@@ -26,13 +26,15 @@ namespace SpriteMapGenerator
 
         SpriteImage temp = new SpriteImage();
 
-        public static RoutedCommand MyCommand = new RoutedCommand();
+        public static RoutedCommand SaveCommand = new RoutedCommand();
+        public static RoutedCommand QuitCommand = new RoutedCommand();
 
         public MainWindow()
         {
             InitializeComponent();
 
-            MyCommand.InputGestures.Add(new KeyGesture(Key.S, ModifierKeys.Control));
+            SaveCommand.InputGestures.Add(new KeyGesture(Key.S, ModifierKeys.Control));
+            QuitCommand.InputGestures.Add(new KeyGesture(Key.Q, ModifierKeys.Control));
         }
 
         public void Browse_Click(object sender, RoutedEventArgs e)
@@ -41,7 +43,7 @@ namespace SpriteMapGenerator
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
             // Set filter for file extension and default file extension 
-            dlg.DefaultExt = "./GitHub/SpriteMapGenerator/SpriteMapGenerator/resources/images";
+            dlg.DefaultExt = "./GitHub/SpriteMapGenerator/SpriteMapGenerator/resources/";
             dlg.Filter = "All Files |*.*| JPG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png|GIF Files (*.gif)|*.gif|JPEG Files (*.jpeg)|*.jpeg";
             dlg.FileName = "Image";
 
@@ -56,6 +58,7 @@ namespace SpriteMapGenerator
                 browseText.Text = filename;
                 // Set to draw 
                 Sprite.Source = new BitmapImage(new Uri(browseText.Text));
+                
             }
         }
 
@@ -63,10 +66,17 @@ namespace SpriteMapGenerator
         {
             // create temp img
             temp.bmImg = new BitmapImage(new Uri(browseText.Text));
-            // add to list
+            // add to Atlas spriteList
             Atlas.spriteList.Add(temp);
 
-            // set image
+            // get sprite data
+            temp.width = temp.bmImg.Width;
+            temp.height = temp.bmImg.Height;
+
+            // stamp to right (last image's width) of last image  onto the background
+
+
+            // set image CHAAAAANGEE!!!
             AtlasImage.Source = temp.bmImg;
         }
 
@@ -84,6 +94,11 @@ namespace SpriteMapGenerator
         private void MyCommandExecuted( object sender, ExecutedRoutedEventArgs e )
         {
             Application.Current.Shutdown();
+        }
+        private void SaveCommandExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            Atlas.CreateAtlas();
+            MessageBox.Show("Your sprite sheet has been saved!");
         }
     }
 }
