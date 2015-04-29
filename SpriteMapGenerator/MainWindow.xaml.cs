@@ -24,7 +24,7 @@ namespace SpriteMapGenerator
     {
         SpriteSheet Atlas = new SpriteSheet();
 
-        SpriteImage temp = new SpriteImage();
+        
 
         public static RoutedCommand SaveCommand = new RoutedCommand();
         public static RoutedCommand QuitCommand = new RoutedCommand();
@@ -64,20 +64,38 @@ namespace SpriteMapGenerator
 
         public void AddToSheet_Click(object sender, RoutedEventArgs e)
         {
+            // storing in SpriteList
+            SpriteImage tempSI = new SpriteImage();
             // create temp img
-            temp.bmImg = new BitmapImage(new Uri(browseText.Text));
-            // add to Atlas spriteList
-            Atlas.spriteList.Add(temp);
-
+            tempSI.bmImg = new BitmapImage(new Uri(browseText.Text));
             // get sprite data
-            temp.width = temp.bmImg.Width;
-            temp.height = temp.bmImg.Height;
+            tempSI.width = tempSI.bmImg.Width;
+            tempSI.height = tempSI.bmImg.Height;
+            // add to Atlas spriteList
+            Atlas.spriteList.Add(tempSI);
+
+            //adding to canvas
+            Image tempImg = new Image
+            {
+                Width = tempSI.width,
+                Height = tempSI.height,
+                Name = "butts",
+                Source = tempSI.bmImg,
+            };
+
+            tempImg.SetValue(Canvas.LeftProperty, (double)50);
+            tempImg.SetValue(Canvas.TopProperty, (double)50);
 
             // stamp to right (last image's width) of last image  onto the background
+            Atlas.SpriteCanvas.Children.Add(tempImg);
+            //Canvas.SetLeft(tempImg, 0.0);
+            //Canvas.SetTop(tempImg, 0.0);
+            //CanvasSheet = Atlas.SpriteCanvas;
 
+            //SHIT DOESNT WORK!!! FIX THIS
 
             // set image CHAAAAANGEE!!!
-            AtlasImage.Source = temp.bmImg;
+            AtlasImage.Source = tempSI.bmImg;
         }
 
         private void Quit_Click(object sender, RoutedEventArgs e)

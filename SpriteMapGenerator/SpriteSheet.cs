@@ -30,23 +30,32 @@ namespace SpriteMapGenerator
 
         public void CreateAtlas()
         {
-            WriteableBitmap writeableBmp = BitmapFactory.New(SHEET_WIDTH, SHEET_HEIGHT);
-            
-            //SpriteImage.Source = writeableBmp;
-            //writeableBmp.GetBitmapContext();
+            // Atlas's BMP
+            WriteableBitmap atlasBmp = BitmapFactory.New(SHEET_WIDTH, SHEET_HEIGHT);
+            double offsetX = 0;
+            float offsetY = 0;
+            System.Windows.Rect atlasRect = new System.Windows.Rect(0, 0, SHEET_WIDTH, SHEET_HEIGHT);
 
             // add sprites
             foreach (SpriteImage img in spriteList)
             {
+                //create new rectangle for sprite
                 System.Windows.Rect spriteRec = new System.Windows.Rect(0, 0, img.width, img.height);
-                WriteableBitmap wBmp = new WriteableBitmap(BitmapFactory.ConvertToPbgra32Format(img.bmImg));
+                //create sprite's BMP
+                WriteableBitmap spriteBmp = new WriteableBitmap(BitmapFactory.ConvertToPbgra32Format(img.bmImg));
+
                 // width and height of individual image
-                writeableBmp.Blit(spriteRec, wBmp, new System.Windows.Rect(0, 0, img.width, img.height));
+
+                //finalBmp.Blit(spriteRec, SpriteBmp, spriteRec, blendmodealpha)
+
+                atlasBmp.Blit(new System.Windows.Rect(offsetX, offsetY, img.width, img.height), spriteBmp, spriteRec, WriteableBitmapExtensions.BlendMode.Additive);
+                //writeableBmp.Blit(spriteRec, wBmp, new System.Windows.Rect(offsetX, offsetY, img.width, img.height));
+                offsetX += img.width;
             }
 
             //saving in png format
             PngBitmapEncoder encoder = new PngBitmapEncoder();
-            encoder.Frames.Add(BitmapFrame.Create(writeableBmp));
+            encoder.Frames.Add(BitmapFrame.Create(atlasBmp));
 
             //save the file
             FileStream fStream = null;
