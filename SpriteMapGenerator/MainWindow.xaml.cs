@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Drawing;
+using System.Xml;
+using System.Xml.Linq;
 
 
 namespace SpriteMapGenerator
@@ -24,7 +26,15 @@ namespace SpriteMapGenerator
     {
         SpriteSheet Atlas = new SpriteSheet();
 
-        
+        //XElement newSprite = new XElement("Sprites");
+        XDocument doc = new XDocument(new XElement("Sprites"));
+
+        //XmlDocument docu = new XmlDocument
+
+        int idCount = 0;
+
+        double XOffset = 0;
+        double YOffset = 0;
 
         public static RoutedCommand SaveCommand = new RoutedCommand();
         public static RoutedCommand QuitCommand = new RoutedCommand();
@@ -41,11 +51,14 @@ namespace SpriteMapGenerator
         {
             // Create OpenFileDialog 
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.Multiselect = true;
+           
 
             // Set filter for file extension and default file extension 
             dlg.DefaultExt = "./GitHub/SpriteMapGenerator/SpriteMapGenerator/resources/";
             dlg.Filter = "All Files |*.*| JPG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png|GIF Files (*.gif)|*.gif|JPEG Files (*.jpeg)|*.jpeg";
-            dlg.FileName = "Image";
+            
+            //dlg.FileName = "Image";
 
             // Display OpenFileDialog by calling ShowDialog method 
             Nullable<bool> result = dlg.ShowDialog();
@@ -58,7 +71,7 @@ namespace SpriteMapGenerator
                 browseText.Text = filename;
                 // Set to draw 
                 Sprite.Source = new BitmapImage(new Uri(browseText.Text));
-                
+
             }
         }
 
@@ -79,23 +92,42 @@ namespace SpriteMapGenerator
             {
                 Width = tempSI.width,
                 Height = tempSI.height,
-                Name = "butts",
+                //Name = browseText.Text,
                 Source = tempSI.bmImg,
             };
 
-            tempImg.SetValue(Canvas.LeftProperty, (double)50);
-            tempImg.SetValue(Canvas.TopProperty, (double)50);
+            tempImg.SetValue(Canvas.LeftProperty, XOffset);
+            tempImg.SetValue(Canvas.TopProperty, YOffset);
+
+            XOffset += tempImg.Width;
 
             // stamp to right (last image's width) of last image  onto the background
-            Atlas.SpriteCanvas.Children.Add(tempImg);
-            //Canvas.SetLeft(tempImg, 0.0);
-            //Canvas.SetTop(tempImg, 0.0);
-            //CanvasSheet = Atlas.SpriteCanvas;
+            SpriteCanvas.Children.Add(tempImg);
 
-            //SHIT DOESNT WORK!!! FIX THIS
+            // add to xml document
+            XElement sprites = doc.Element("Sprites");
+            XElement spriteElement = new XElement("Sprite");
 
-            // set image CHAAAAANGEE!!!
-            AtlasImage.Source = tempSI.bmImg;
+            spriteElement.SetAttributeValue("width", tempImg.Width);
+            spriteElement.SetAttributeValue("height", tempImg.Height);
+            spriteElement.SetAttributeValue("id", idCount);
+            sprites.Add(spriteElement);
+
+
+            
+
+            
+
+            /*
+            temp.Element("Sprite").Add(new XAttribute("width", tempImg.Width),
+                                        new XAttribute("height", tempImg.Height),
+                                        new XAttribute("id", idCount));
+             */
+
+           
+
+            idCount++;
+
         }
 
         private void Quit_Click(object sender, RoutedEventArgs e)
@@ -105,17 +137,22 @@ namespace SpriteMapGenerator
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            Atlas.CreateAtlas();
+            doc.Element("Sprites").Add(new XAttribute("count", Atlas.spriteList.Count()));
+
+            Atlas.CreateAtlas(XOffset);
+            doc.Save("./doc.xml");
             MessageBox.Show("Your sprite sheet has been saved!");
         }
 
-        private void MyCommandExecuted( object sender, ExecutedRoutedEventArgs e )
+        private void MyCommandExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
         private void SaveCommandExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            Atlas.CreateAtlas();
+            doc.Element("Sprites").Add(new XAttribute("count", Atlas.spriteList.Count()));
+            Atlas.CreateAtlas(XOffset);
+            doc.Save("./doc.xml");
             MessageBox.Show("Your sprite sheet has been saved!");
         }
     }

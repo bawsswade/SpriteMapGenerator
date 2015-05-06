@@ -51,9 +51,7 @@
                   Width="5" Background="#FFBCBCBC"/>
 
             <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="10" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Center"  Width="Auto" MinWidth="300" MinHeight="300">
-                <Canvas x:Name="SpriteCanvas">
-                    <Image Name="AtlasImage"></Image>
-                </Canvas>
+                <Canvas x:Name="SpriteCanvas" Background="White" />
             </Border>
         </Grid>
     </DockPanel>
