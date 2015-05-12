@@ -51,11 +51,6 @@ namespace SpriteMapGenerator
         {
             InitializeComponent();
 
-            
-            
-            
-
-
             SaveCommand.InputGestures.Add(new KeyGesture(Key.S, ModifierKeys.Control));
             QuitCommand.InputGestures.Add(new KeyGesture(Key.Q, ModifierKeys.Control));
 
