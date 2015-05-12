@@ -1,0 +1,10 @@
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\UnitTestProject\bin\Debug\UnitTestProject.dll
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\UnitTestProject\bin\Debug\UnitTestProject.pdb
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\UnitTestProject\bin\Debug\SpriteMapGenerator.exe
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\UnitTestProject\bin\Debug\WriteableBitmapEx.Wpf.dll
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\UnitTestProject\bin\Debug\SpriteMapGenerator.pdb
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\UnitTestProject\bin\Debug\WriteableBitmapEx.Wpf.pdb
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\UnitTestProject\bin\Debug\WriteableBitmapEx.Wpf.xml
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\UnitTestProject\obj\Debug\UnitTestProject.csprojResolveAssemblyReference.cache
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\UnitTestProject\obj\Debug\UnitTestProject.dll
+C:\Users\wade.gushikuma\Documents\GitHub\SpriteMapGenerator\UnitTestProject\obj\Debug\UnitTestProject.pdb

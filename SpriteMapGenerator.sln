@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpriteMapGenerator", "SpriteMapGenerator\SpriteMapGenerator.csproj", "{47B0F822-48FB-468D-9C1B-5C06720809B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{439F45FA-8FF6-419A-9CFB-AE25EDAE08ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{47B0F822-48FB-468D-9C1B-5C06720809B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47B0F822-48FB-468D-9C1B-5C06720809B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47B0F822-48FB-468D-9C1B-5C06720809B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{439F45FA-8FF6-419A-9CFB-AE25EDAE08ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{439F45FA-8FF6-419A-9CFB-AE25EDAE08ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{439F45FA-8FF6-419A-9CFB-AE25EDAE08ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{439F45FA-8FF6-419A-9CFB-AE25EDAE08ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

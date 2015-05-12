@@ -62,14 +62,21 @@ namespace SpriteMapGenerator
             // Create OpenFileDialog 
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
             dlg.Multiselect = true;
-           
+
 
             // Set filter for file extension and default file extension 
             dlg.DefaultExt = "./GitHub/SpriteMapGenerator/SpriteMapGenerator/resources/";
             dlg.Filter = "All Files |*.*| JPG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png|GIF Files (*.gif)|*.gif|JPEG Files (*.jpeg)|*.jpeg";
-            
+
             //dlg.FileName = "Image";
 
+            
+
+            AddtoList(dlg);
+        }
+
+        public void AddtoList(Microsoft.Win32.OpenFileDialog dlg)
+        {
             // Display OpenFileDialog by calling ShowDialog method 
             Nullable<bool> result = dlg.ShowDialog();
 
@@ -79,27 +86,16 @@ namespace SpriteMapGenerator
                 // to store in list
                 SpriteImage temp = new SpriteImage();
                 temp.bmImg = new BitmapImage(new Uri(file));
-                
 
-                // todisplay in textblock
-                //TextBlock txt = new TextBlock();
                 var onlyFileName = System.IO.Path.GetFileName(file);
                 temp.filename = onlyFileName;
-                //txt.MouseLeftButtonDown += interface_mouseDown;
-                //txt.Text = onlyFileName;
 
-
-                
                 //add to list box
                 spriteNames.Items.Add(temp);
-                
-                
 
                 // add to tmep list for atlas
                 browseImages.Add(temp);
             }
-
-
 
             // Get the selected file name and display in a TextBox 
             if (result == true)
@@ -112,22 +108,12 @@ namespace SpriteMapGenerator
             }
         }
 
-        private void interface_mouseDown(object sender, MouseButtonEventArgs e)
+        public void AddToSheet_Click(object sender, RoutedEventArgs e)
         {
-            /*//MessageBox.Show("hi");
-            TextBlock text = new TextBlock();
-            text.Text = spriteNames.SelectedItem.ToString();
-            
-            //String selection = spriteNames.SelectedItem.ToString();
-            Sprite.Source = new BitmapImage(new Uri(text.Text));*/
-
-            //if (spriteNames.SelectedItem != null)
-            //    MessageBox.Show(spriteNames.SelectedItem.ToString());
+            AddtoSheet();
         }
 
-
-
-        public void AddToSheet_Click(object sender, RoutedEventArgs e)
+        public void AddtoSheet()
         {
             foreach (SpriteImage sprite in browseImages)
             {
@@ -166,9 +152,6 @@ namespace SpriteMapGenerator
 
                 idCount++;
             }
-            
-            // empty list
-            //browseImages.Clear();
         }
 
         private void Quit_Click(object sender, RoutedEventArgs e)
