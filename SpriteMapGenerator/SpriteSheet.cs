@@ -30,7 +30,7 @@ namespace SpriteMapGenerator
 
         public void CreateAtlas(double width)
         {
-            // Atlas's BMP
+            // Atlas's BMP              (set height to image height)
             WriteableBitmap atlasBmp = BitmapFactory.New((int)width, 500);
             double offsetX = 0;
             float offsetY = 0;

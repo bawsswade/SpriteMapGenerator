@@ -5,13 +5,16 @@ using System.Text;
 using System.Windows.Media.Imaging;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Collections.ObjectModel;
 
-namespace SpriteMapGenerator
+
+namespace SpriteMapGenerator 
 {
-    class SpriteImage
+    public class SpriteImage
     {
-        public BitmapImage bmImg;
-        public Point point;
+        public BitmapImage bmImg {get;set;}
+        public String filename { get; set; }
+        //public Point point;
 
         //BitmapImage
         public  string filePath {get;set;}
