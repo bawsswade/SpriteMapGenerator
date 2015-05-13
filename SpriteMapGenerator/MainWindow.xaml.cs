@@ -66,7 +66,7 @@ namespace SpriteMapGenerator
 
             // Set filter for file extension and default file extension 
             dlg.DefaultExt = "./GitHub/SpriteMapGenerator/SpriteMapGenerator/resources/";
-            dlg.Filter = "All Files |*.*| JPG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png|GIF Files (*.gif)|*.gif|JPEG Files (*.jpeg)|*.jpeg";
+            dlg.Filter = "PNG Files (*.png)|*.png|All Files |*.*| JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif|JPEG Files (*.jpeg)|*.jpeg";
 
             //dlg.FileName = "Image";
 
@@ -183,6 +183,7 @@ namespace SpriteMapGenerator
         private void spriteName_SelectionChange(object sender, SelectionChangedEventArgs e)
         {
             SpriteImage lbi = ((sender as ListBox).SelectedItem as SpriteImage);
+            browseText.Text = lbi.filename;
             Sprite.Source = lbi.bmImg;
         }
     }

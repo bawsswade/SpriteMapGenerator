@@ -12,6 +12,9 @@ namespace SpriteMapGenerator.Tests
     [TestClass()]
     public class MainWindowTests
     {
+
+        Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
         [TestMethod()]
         public void MainWindowTest()
         {
@@ -23,8 +26,7 @@ namespace SpriteMapGenerator.Tests
         public void AddtoListTest()
         {
             MainWindow m = new MainWindow();
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-
+            
             dlg.DefaultExt = "./GitHub/SpriteMapGenerator/SpriteMapGenerator/resources/images/smile.png";
             m.AddtoList(dlg);
             Assert.IsNotNull(m.browseImages);
@@ -35,15 +37,18 @@ namespace SpriteMapGenerator.Tests
         {
             MainWindow m = new MainWindow();
             SpriteImage si = new SpriteImage();
-            si.width = 10;
-            si.height = 10;
-            si.bmImg = new BitmapImage();
-            si.bmImg.BeginInit();
-            si.bmImg.UriSource = new Uri(@"/Users/wade.gushikuma/MyDocuments/GitHub/SpriteMapGenerator/SpriteMapGenerator/resources/images/smile.png", UriKind.Relative);
-            si.bmImg.EndInit();
-            m.browseImages.Add(si);
 
-            m.AddtoSheet();
+            foreach (String file in dlg.FileNames)
+            {
+                si.bmImg = new BitmapImage(new Uri(file));
+
+                si.width = 10;
+                si.height = 10;
+                m.browseImages.Add(si);
+
+
+                m.AddtoSheet();
+            }
             Assert.IsNotNull(m.browseImages);
         }
 
